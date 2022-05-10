@@ -45,4 +45,6 @@ model PeerReview {
   scoreThird Int
 
   feedbackText String
+  
+  createdAt DateTime @default(now())
 }

@@ -12,8 +12,7 @@ enum ReportsTabs {
 
 export const loader: LoaderFunction = async () => {
   const peerReviews = await listPeerReviews();
-  console.log(peerReviews)
-  return json<LoaderData>({ peerReviews: [], foo: 'bar' });
+  return json<LoaderData>({ peerReviews, foo: 'bar' });
 };
 
 type LoaderData = {
@@ -23,24 +22,12 @@ type LoaderData = {
 
  function Peer() {
   const data = useLoaderData() as LoaderData;
-  console.log(data)
   return (
     <div className="" id="tabs-peer" role="tabpanel">
-        <div>
-            <span>From: Albert</span>
-            <span>Score 1: 3</span>
-            <span>Score 2: 4</span>
-            <span>Score 3: 4</span>
-            <span>Additional Text</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce massa felis, ultrices quis lacinia ac, finibus vel urna. Vestibulum at velit nisi. Donec rutrum volutpat laoreet. Proin condimentum ut libero eu faucibus. Nulla facilisi. Donec tincidunt est nec mi tristique tempor. Cras ac lobortis elit. In sed semper augue, nec sodales velit.</p>
-          </div>
       {data?.peerReviews?.map((peerReview) => {
         return (
-          <div id={peerReview.id}>
-            <span>Score 1: {peerReview.scoreFirst}</span>
-            <span>Score 2: {peerReview.scoreSecond}</span>
-            <span>Score 3: {peerReview.scoreThird}</span>
-            <span>Additional Text</span>
+          <div key={peerReview.id} className="my-10">
+            <span>Score: {peerReview.scoreFirst}/5</span>
             <p>{peerReview.feedbackText}</p>
           </div>
         );
@@ -61,7 +48,7 @@ export default function Indiv() {
         
         <img className="mt-2" src="https://files.slack.com/files-pri/T6BS929EZ-F03FFCJ9XL0/group_484.png?pub_secret=e8e029eeb1"/>
         <div>
-      This is the indiv screen
+      <img src="https://files.slack.com/files-pri/T6BS929EZ-F03EU14EBQU/group_487.png?pub_secret=96662418ab" />
 
       <ul
         className="nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4"
@@ -150,7 +137,7 @@ export default function Indiv() {
       <div className="tab-content" id="tabs-tabContentJustify">
         {selectedTab === ReportsTabs.System ? (
           <div className="" id="tabs-system" role="tabpanel">
-            System Review
+            <img src="https://files.slack.com/files-pri/T6BS929EZ-F03EKF19J4E/group_21.png?pub_secret=db7dc0e139" />
           </div>
         ) : selectedTab === ReportsTabs.Peer ? (
           <Peer />

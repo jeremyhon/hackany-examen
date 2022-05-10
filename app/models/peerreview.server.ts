@@ -4,7 +4,7 @@ import { prisma } from "~/db.server";
 export type { PeerReview } from "@prisma/client";
 
 export  function listPeerReviews() {
-  return prisma.peerReview.findMany();
+  return prisma.peerReview.findMany({orderBy: {createdAt: 'desc'}});
 }
 
 export  function createPeerReview({
