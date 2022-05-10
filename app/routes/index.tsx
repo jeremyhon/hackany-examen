@@ -133,6 +133,7 @@ export default function Index() {
           </div>
         </div>
       </div>
+      <script src="js/addons/rating.js"></script>
     </main>
   );
 }
