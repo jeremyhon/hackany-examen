@@ -3,19 +3,21 @@ import React from "react";
 
 export default function Review() {
 
-  const [numStars, setNumStars] = React.useState(0)
+  const [numStars1, setNumStars1] = React.useState(0)
+  const [numStars2, setNumStars2] = React.useState(0)
+  const [numStars3, setNumStars3] = React.useState(0)
 
   return (
     <div className="d-flex p-4">
         <div>hi its the review screen</div>
-        <div>You and Camille have worked more thant 50 hours together during this last period. Please carefully and honestly review Camille since it may have an impact on her position.</div>
+        <div>You and Karl have worked more thant 50 hours together during this last period. Please carefully and honestly review Camille since it may have an impact on her position.</div>
         <Form action="/peer/success">
             <div className="d-flex">
-                <span onClick={() => setNumStars(1)}>{numStars >= 1 ? "⭐️" : "✩" }</span>
-                <span onClick={() => setNumStars(2)}>{numStars >= 2 ? "⭐️" : "✩" }</span>
-                <span onClick={() => setNumStars(3)}>{numStars >= 3 ? "⭐️" : "✩" }</span>
-                <span onClick={() => setNumStars(4)}>{numStars >= 4 ? "⭐️" : "✩" }</span>
-                <span onClick={() => setNumStars(5)}>{numStars >= 5 ? "⭐️" : "✩" }</span>
+                <span onClick={() => setNumStars1(1)}>{numStars1 >= 1 ? "⭐️" : "✩" }</span>
+                <span onClick={() => setNumStars1(2)}>{numStars1 >= 2 ? "⭐️" : "✩" }</span>
+                <span onClick={() => setNumStars1(3)}>{numStars1 >= 3 ? "⭐️" : "✩" }</span>
+                <span onClick={() => setNumStars1(4)}>{numStars1 >= 4 ? "⭐️" : "✩" }</span>
+                <span onClick={() => setNumStars1(5)}>{numStars1 >= 5 ? "⭐️" : "✩" }</span>
                 <span className="px-2">Good team work</span>
                 <label className="flex w-full flex-col gap-1">
                     <span>Body: </span>
@@ -33,20 +35,20 @@ export default function Review() {
             </div>
 
             <div className="d-flex">
-                <span onClick={() => setNumStars(1)}>{numStars >= 1 ? "⭐️" : "✩" }</span>
-                <span onClick={() => setNumStars(2)}>{numStars >= 2 ? "⭐️" : "✩" }</span>
-                <span onClick={() => setNumStars(3)}>{numStars >= 3 ? "⭐️" : "✩" }</span>
-                <span onClick={() => setNumStars(4)}>{numStars >= 4 ? "⭐️" : "✩" }</span>
-                <span onClick={() => setNumStars(5)}>{numStars >= 5 ? "⭐️" : "✩" }</span>
+                <span onClick={() => setNumStars2(1)}>{numStars2 >= 1 ? "⭐️" : "✩" }</span>
+                <span onClick={() => setNumStars2(2)}>{numStars2 >= 2 ? "⭐️" : "✩" }</span>
+                <span onClick={() => setNumStars2(3)}>{numStars2 >= 3 ? "⭐️" : "✩" }</span>
+                <span onClick={() => setNumStars2(4)}>{numStars2 >= 4 ? "⭐️" : "✩" }</span>
+                <span onClick={() => setNumStars2(5)}>{numStars2 >= 5 ? "⭐️" : "✩" }</span>
                 <span className="px-2">Good client contact</span>
             </div>
 
             <div className="d-flex">
-                <span onClick={() => setNumStars(1)}>{numStars >= 1 ? "⭐️" : "✩" }</span>
-                <span onClick={() => setNumStars(2)}>{numStars >= 2 ? "⭐️" : "✩" }</span>
-                <span onClick={() => setNumStars(3)}>{numStars >= 3 ? "⭐️" : "✩" }</span>
-                <span onClick={() => setNumStars(4)}>{numStars >= 4 ? "⭐️" : "✩" }</span>
-                <span onClick={() => setNumStars(5)}>{numStars >= 5 ? "⭐️" : "✩" }</span>
+                <span onClick={() => setNumStars3(1)}>{numStars3 >= 1 ? "⭐️" : "✩" }</span>
+                <span onClick={() => setNumStars3(2)}>{numStars3 >= 2 ? "⭐️" : "✩" }</span>
+                <span onClick={() => setNumStars3(3)}>{numStars3 >= 3 ? "⭐️" : "✩" }</span>
+                <span onClick={() => setNumStars3(4)}>{numStars3 >= 4 ? "⭐️" : "✩" }</span>
+                <span onClick={() => setNumStars3(5)}>{numStars3 >= 5 ? "⭐️" : "✩" }</span>
                 <span className="px-2">Reliability</span>
             </div>
             

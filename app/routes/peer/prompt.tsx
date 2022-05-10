@@ -1,9 +1,25 @@
 import { Form } from "@remix-run/react";
+import karlPic from './karl-pic.jpg';
 
 export default function Prompt() {
     return (
-      <div className="d-flex p-4">
-        <div>Do you want to review Camille ?</div>
+      <div style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+      }}>
+        <img
+          style={{
+            width: "50%",
+            height: "80%",
+            borderRadius: "10px",
+          }}
+            src= {karlPic}
+            alt="Sonic Youth On Stage"
+          />
+        <div>Do you want to review Karl ?</div>
         <Form action="/peer/review">
           <button
             type="submit"
