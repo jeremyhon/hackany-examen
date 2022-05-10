@@ -1,9 +1,52 @@
 import React from "react";
+import type { LoaderFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+import { listPeerReviews } from "~/models/peerreview.server";
 
 enum ReportsTabs {
     System,
     Peer,
     Customer
+}
+
+export const loader: LoaderFunction = async () => {
+  const peerReviews = await listPeerReviews();
+  console.log(peerReviews)
+  return json<LoaderData>({ peerReviews: [], foo: 'bar' });
+};
+
+type LoaderData = {
+  peerReviews: Awaited<ReturnType<typeof listPeerReviews>>;
+  foo: string
+};
+
+ function Peer() {
+  const data = useLoaderData() as LoaderData;
+  console.log(data)
+  return (
+    <div className="" id="tabs-peer" role="tabpanel">
+        <div>
+            <span>From: Albert</span>
+            <span>Score 1: 3</span>
+            <span>Score 2: 4</span>
+            <span>Score 3: 4</span>
+            <span>Additional Text</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce massa felis, ultrices quis lacinia ac, finibus vel urna. Vestibulum at velit nisi. Donec rutrum volutpat laoreet. Proin condimentum ut libero eu faucibus. Nulla facilisi. Donec tincidunt est nec mi tristique tempor. Cras ac lobortis elit. In sed semper augue, nec sodales velit.</p>
+          </div>
+      {data?.peerReviews?.map((peerReview) => {
+        return (
+          <div id={peerReview.id}>
+            <span>Score 1: {peerReview.scoreFirst}</span>
+            <span>Score 2: {peerReview.scoreSecond}</span>
+            <span>Score 3: {peerReview.scoreThird}</span>
+            <span>Additional Text</span>
+            <p>{peerReview.feedbackText}</p>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 export default function Indiv() {
@@ -110,9 +153,7 @@ export default function Indiv() {
             System Review
           </div>
         ) : selectedTab === ReportsTabs.Peer ? (
-          <div className="" id="tabs-peer" role="tabpanel">
-            Peer Review
-          </div>
+          <Peer />
         ) : selectedTab === ReportsTabs.Customer ? (
           <div className="" id="tabs-customer" role="tabpanel">
             <img src="https://files.slack.com/files-pri/T6BS929EZ-F03F47WDJDP/group_483.png?pub_secret=e381702ba9" />
